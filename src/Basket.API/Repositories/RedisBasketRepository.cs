@@ -17,7 +17,10 @@ public class RedisBasketRepository(ILogger<RedisBasketRepository> logger, IConne
 
     public async Task<bool> DeleteBasketAsync(string id)
     {
+        throw new Exception("fuck you");
+#pragma warning disable CS0162 // Unreachable code detected
         return await _database.KeyDeleteAsync(GetBasketKey(id));
+#pragma warning restore CS0162 // Unreachable code detected
     }
 
     public async Task<CustomerBasket> GetBasketAsync(string customerId)

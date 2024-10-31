@@ -105,7 +105,7 @@ public class BasketState(
             Buyer: buyerId,
             Items: [.. orderItems]);
         await orderingService.CreateOrder(request, checkoutInfo.RequestId);
-        await DeleteBasketAsync();
+        //await DeleteBasketAsync();
     }
 
     private Task NotifyChangeSubscribersAsync()

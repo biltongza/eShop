@@ -60,7 +60,7 @@ public partial class CheckoutViewModel : ViewModelBase
                 {
                     CardNumber = userInfo?.CardNumber,
                     CardHolderName = userInfo?.CardHolder,
-                    CardType = new CardType {Id = 3, Name = "MasterCard"},
+                    CardType = new CardType { Id = 3, Name = "MasterCard" },
                     SecurityNumber = userInfo?.CardSecurityNumber
                 };
 
@@ -112,11 +112,11 @@ public partial class CheckoutViewModel : ViewModelBase
             await _appEnvironmentService.OrderService.CreateOrderAsync(Order);
 
             // Clean Basket
-            await _appEnvironmentService.BasketService.ClearBasketAsync();
+            //await _appEnvironmentService.BasketService.ClearBasketAsync();
 
             // Reset Basket badge
             await _basketViewModel.ClearBasketItems();
-            
+
             WeakReferenceMessenger.Default
                 .Send(new ProductCountChangedMessage(0));
 
